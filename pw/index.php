@@ -35,6 +35,7 @@ $buku = query("SELECT * FROM buku");
     </nav>
 
     <!--AKHIR NAVBAR  -->
+    <h1>Daftar Buku</h1>
 
     <!-- CARD -->
     <div class="container">
