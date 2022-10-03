@@ -1,8 +1,11 @@
 <?php
 require 'function.php';
 
-$id = $_GET['id_buku'];
-$bk = query("SELECT * FROM buku WHERE id_buku = $id")[0];
+// ambil id dr url
+$id_buku = $_GET['id_buku'];
+
+//query berdasarkan id 
+$b = query("SELECT * FROM buku WHERE id_buku = $id_buku");
 
 if (isset($_POST['ubah'])) {
   if (ubah($_POST) > 0) {
@@ -35,31 +38,27 @@ if (isset($_POST['ubah'])) {
 
 <body>
   <div class="container">
-    <h4>Halaman Ubah Data Data</h4>
-    <form action="" method="post">
-
-      <input type="hidden" name="id_buku" value="<?= $bk['id_buku']; ?>">
-
-      <div class="card-panel">
-        <div class="input-field">
-          <label for="judul">Judul</label>
-          <input type="text" name="judul" id="judul" required class="validate">
-        </div><br>
-        <div class="input-field">
-          <input type="text" name="gambar" id="gambar" required class="validate">
-          <label for="gambar">Gambar</label>
-        </div><br>
-        <div class="input-field">
-          <input type="text" name="pengarang" id="pengarang" required class="validate">
-          <label for="pengarang">Pengarang</label>
-        </div><br>
-        <div class="input-field">
-          <input type="text" name="sinopsis" id="sinopsis" required class="validate">
-          <label for="sinopsis">Sinopsis</label>
-        </div><br>
-        <button type="submit" name="ubah" class="btn btn-warning">Ubah Data!</button>
-        <a href="index.php" class="btn btn-success">Kembali</a>
+    <h3>Halaman Ubah Data</h3><br>
+    <form action="" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="id_buku" value="<?= $b['id_buku']; ?>">
+      <div class="mb-3">
+        <label for="judul">Judul</label>
+        <input type="text" name="judul" id="judul" class="form-control" required class="validate">
       </div>
+      <div class="mb-3">
+        <label for="gambar">Gambar</label>
+        <input type="text" name="gambar" id="gambar" class="form-control" required class="validate">
+      </div>
+      <div class="mb-3">
+        <label for="pengarang">Pengarang</label>
+        <input type="text" name="pengarang" id="pengarang" class="form-control" required class="validate">
+      </div>
+      <div class="mb-3">
+        <label for="sinopsis">Gambar</label>
+        <input type="text" name="sinopsis" id="sinopsis" class="form-control" required class="validate">
+      </div>
+      <button type="submit" name="ubah" class="btn btn-warning">Ubah Data!</button>
+      <a href="index.php" class="btn btn-success">Kembali</a>
     </form>
   </div>
 

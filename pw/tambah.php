@@ -32,29 +32,26 @@ if (isset($_POST['tambah'])) {
 
 <body>
   <div class="container">
-    <h4>Halaman Tambah Data</h4>
-    <form action="" method="post">
-
-      <div class="card-panel">
-        <div class="input-field">
-          <label for="judul">Judul</label>
-          <input type="text" name="judul" id="judul" required class="validate">
-        </div><br>
-        <div class="input-field">
-          <input type="text" name="gambar" id="gambar" required class="validate">
-          <label for="gambar">Gambar</label>
-        </div><br>
-        <div class="input-field">
-          <input type="text" name="pengarang" id="pengarang" required class="validate">
-          <label for="pengarang">Pengarang</label>
-        </div><br>
-        <div class="input-field">
-          <input type="text" name="sinopsis" id="sinopsis" required class="validate">
-          <label for="sinopsis">Sinopsis</label>
-        </div><br>
-        <button type="submit" name="tambah" class="btn btn-warning">Tambah Data!</button>
-        <a href="index.php" class="btn btn-success">Kembali</a>
+    <h3>Halaman Tambah Data</h3><br>
+    <form action="" method="POST">
+      <div class="mb-3">
+        <label for="judul">Judul</label>
+        <input type="text" name="judul" id="judul" class="form-control" required class="validate">
       </div>
+      <div class="mb-3">
+        <label for="gambar">Gambar</label>
+        <input type="text" name="gambar" id="gambar" class="form-control" required class="validate">
+      </div>
+      <div class="mb-3">
+        <label for="pengarang">Pengarang</label>
+        <input type="text" name="pengarang" id="pengarang" class="form-control" required class="validate">
+      </div>
+      <div class="mb-3">
+        <label for="sinopsis">Sinopsis</label>
+        <input type="text" name="sinopsis" id="sinopsis" class="form-control" required class="validate">
+      </div>
+      <button type="submit" name="tambah" class="btn btn-warning">Tambah Data!</button>
+      <a href="index.php" class="btn btn-success">Kembali</a>
     </form>
   </div>
 

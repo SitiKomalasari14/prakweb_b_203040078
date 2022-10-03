@@ -1,26 +1,26 @@
 <?php
-// function melakukan connect ke database
-$conn = mysqli_connect("localhost", "root", "", "prakweb_2022_b_203040078");
 function koneksi()
 {
-  $conn = mysqli_connect("localhost", "root", "");
-  mysqli_select_db($conn, "prakweb_2022_b_203040078");
-
-  return $conn;
+  return mysqli_connect('localhost', 'root', '', 'prakweb_2022_b_203040078');
 }
 
-// function untuk melakukan query dan memasukkannya ke dalam ARRAY
-function query($sqL)
+function query($query)
 {
   $conn = koneksi();
-  $result = mysqli_query($conn, $sqL);
-  $buku = [];
-  while ($bk = mysqli_fetch_assoc($result)) {
-    $buku[] = $bk;
-  };
-  return $buku;
-}
 
+  $result = mysqli_query($conn, $query);
+
+  // jika hasilnya hanya 1 data
+  if (mysqli_num_rows($result) == 1) {
+    return mysqli_fetch_assoc($result);
+  }
+  $rows = [];
+  while ($row = mysqli_fetch_assoc($result)) {
+    $rows[] = $row;
+  }
+
+  return $rows;
+}
 //fungsi untuk MENAMBAHKAN data didalam database
 function tambah($data)
 {
@@ -58,21 +58,19 @@ function ubah($data)
 {
   $conn = koneksi();
 
-  $id = $data['id_buku'];
+  $id_buku = $data['id_buku'];
   $judul = htmlspecialchars($data['judul']);
   $gambar = htmlspecialchars($data['gambar']);
   $pengarang = htmlspecialchars($data['pengarang']);
   $sinopsis = htmlspecialchars($data['sinopsis']);
 
-  $query = "UPDATE buku
-            SET
-            judul = '$judul', 
-            gambar = '$gambar', 
-            pengarang = '$pengarang', 
-            sinopsis = '$sinopsis',
-            WHERE id_buku = $id
-            ";
-  mysqli_query($conn, $query);
 
+  $query = " UPDATE buku SET
+            judul = '$judul', 
+            gambar = '$gambar',
+            pengarang = '$pengarang', 
+            sinopsis = '$sinopsis' 
+          WHERE id_buku = $id_buku";
+  mysqli_query($conn, $query) or die(mysqli_error($conn));
   return mysqli_affected_rows($conn);
 }
