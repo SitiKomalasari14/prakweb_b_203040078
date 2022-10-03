@@ -74,3 +74,25 @@ function ubah($data)
   mysqli_query($conn, $query) or die(mysqli_error($conn));
   return mysqli_affected_rows($conn);
 }
+
+// fungsi CARI
+function cari($keyword)
+{
+  $conn = koneksi();
+
+  $query = "SELECT * FROM buku 
+              WHERE 
+              judul LIKE '%$keyword%' OR
+              pengarang LIKE '%$keyword%' OR
+              sinopsis LIKE '%$keyword%'
+              ";
+
+  $result = mysqli_query($conn, $query);
+
+  $rows = [];
+  while ($row = mysqli_fetch_assoc($result)) {
+    $rows[] = $row;
+  }
+
+  return $rows;
+}

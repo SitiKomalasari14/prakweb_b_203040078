@@ -29,9 +29,20 @@ if (isset($_POST['ubah'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <!-- GOOGLE FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&display=swap" rel="stylesheet">
   <style>
     body {
-      background-color: beige;
+      background-color: #C8C6C6;
+    }
+
+    h3,
+    .container {
+      padding: 10px;
+      font-family: 'Fraunces', serif;
+
     }
   </style>
 </head>
@@ -57,7 +68,7 @@ if (isset($_POST['ubah'])) {
         <label for="sinopsis">Gambar</label>
         <input type="text" name="sinopsis" id="sinopsis" class="form-control" required class="validate">
       </div>
-      <button type="submit" name="ubah" class="btn btn-warning">Ubah Data!</button>
+      <button type="submit" name="ubah" class="btn btn-danger">Ubah Data!</button>
       <a href="index.php" class="btn btn-success">Kembali</a>
     </form>
   </div>
