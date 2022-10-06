@@ -1,13 +1,4 @@
 <?php
-// Property = merepresentasikan DATA/ keadaan dari sebuah objek
-// Method = merepresentasikan PERILAKU dari sebuah objek
-// Property = variabel, Method = function 
-
-// Jual Produk
-// Komik
-// Game
-
-use Produk as GlobalProduk;
 
 class Produk
 {
